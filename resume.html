@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul B. Malgave - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: #007bff;
+            color: #fff;
+            min-height: 100vh;
+            padding-top: 20px;
+        }
+
+        .sidebar .nav-link {
+            color: #fff;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+
+        .sidebar .nav-link:hover, 
+        .sidebar .nav-link.active {
+            background: #0056b3;
+            border-radius: 5px;
+        }
+
+        /* Sections */
+        .section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .mobile-header {
+                background: #007bff;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-header d-sm-none">
+        Rahul B. Malgave - Portfolio
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column" id="sidebarMenu">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#profile">Professional Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#education">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#experience">Professional Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Technical Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Node.js Key Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#certifications">Certifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#hobbies">Hobbies</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <header class="my-4 text-center">
+                    <img src="./rm.png" alt="Profile Picture" class="profile-img mb-3">
+                    <h1>Rahul B. Malgave</h1>
+                    <p class="text-muted">Web Developer | PHP Programmer | Node.js Programmer</p>
+                    <p>Mobile: +91 9768708926 | Email: <a href="mailto:rahulmalgave4433@gmail.com">rahulmalgave4433@gmail.com</a></p>
+                    <p>Address: D-2, 305 - Dhartidhan, Yashwant Nagar, Virar (W)</p>
+                </header>
+
+                <section id="profile" class="section">
+                    <h2>Professional Profile</h2>
+                    <p>Passionate and detail-oriented Full Stack Developer with 3.6 years of experience in PHP development, 2 years of web design expertise, and 1.5 years of AngularJS experience. Recently transitioned into Node.js development with 1 year of hands-on experience, showcasing a commitment to continuous learning and professional growth. Adept at creating scalable APIs, developing efficient backend solutions, and building robust frontend applications. Strong debugging and problem-solving skills with a proven ability to deliver impactful solutions in fast-paced environments.</p>
+                </section>
+
+                <section id="education" class="section">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>Bachelor of Computer Applications (B.C.A), 2015-2018</li>
+                        <li>HSC, 2014-2015</li>
+                        <li>SSC, 2012-2013</li>
+                    </ul>
+                </section>
+
+                <section id="experience" class="section">
+                    <h2>Professional Experience</h2>
+                    <h3>Ebrandz LLP</h3>
+                    <p><strong>PHP Developer | AngularJS & Node.js Developer</strong> (Feb 2023 – Present)</p>
+                    <ul>
+                        <li>Developed and integrated APIs for AngularJS applications using Slim and CodeIgniter frameworks.</li>
+                        <li>Implemented advanced backend features like web workers and cron jobs for task automation.</li>
+                        <li>Worked with Node.js to create notifications Mailer and dynamic websites.</li>
+                        <li>Integrated third-party libraries to enhance system functionality.</li>
+                        <li>Applied strong debugging skills to resolve issues promptly and ensure system stability.</li>
+                    </ul>
+
+                    <h3>Perseus IT Solution</h3>
+                    <p><strong>PHP Programmer and Web Developer</strong> (Jun 2022 – Feb 2023)</p>
+                    <ul>
+                        <li>Designed and implemented web applications focusing on user experience and backend efficiency.</li>
+                        <li>Optimized database design and performance using MySQL.</li>
+                        <li>Collaborated with teams to build secure and scalable solutions.</li>
+                    </ul>
+
+                    <h3>PaxChem Pvt Ltd</h3>
+                    <p><strong>Web Developer</strong> (Apr 2021 – Dec 2021)</p>
+                    <ul>
+                        <li>Built and maintained dynamic websites with a focus on performance optimization.</li>
+                        <li>Transitioned into backend development, gaining expertise in PHP frameworks.</li>
+                    </ul>
+
+                    <h3>Naman Global Impex Pvt Ltd</h3>
+                    <p><strong>Web Designer</strong> (Mar 2019 – Mar 2021)</p>
+                    <ul>
+                        <li>Created responsive web designs using Bootstrap.</li>
+                        <li>Maintained and updated websites, ensuring cross-platform compatibility.</li>
+                    </ul>
+                </section>
+
+                <section id="skills" class="section">
+                    <h2>Technical Skills</h2>
+                    <ul>
+                        <li><strong>Programming Languages:</strong> Node.js, PHP, Python (basic knowledge)</li>
+                        <li><strong>Backend Frameworks:</strong> Slim, CodeIgniter, Laravel</li>
+                        <li><strong>Frontend Frameworks:</strong> AngularJS, Bootstrap</li>
+                        <li><strong>Databases:</strong> MySQL, MongoDB</li>
+                        <li><strong>Version Control:</strong> Git, Bitbucket</li>
+                        <li><strong>CMS:</strong> WordPress</li>
+                        <li><strong>Client-Side:</strong> JavaScript, HTML, CSS, jQuery, AJAX</li>
+                        <li><strong>Tools:</strong> Adobe Photoshop, Adobe Illustrator, MS Office Suite</li>
+                        <li><strong>Operating Systems:</strong> Linux, macOS, Windows</li>
+                    </ul>
+                </section>
+
+                <section id="projects" class="section">
+                    <h2>Node.js Key Projects</h2>
+                    <ul>
+                        <li><strong>Home Budget Management System:</strong> Designed and developed a Node.js application for managing household budgets, including expense tracking and email notifications.</li>
+                        <li><strong>Dynamic Websites:</strong> Developed and maintained dynamic websites using Node.js, ensuring scalability and robust backend performance.</li>
+                    </ul>
+                </section>
+
+                <section id="certifications" class="section">
+                    <h2>Certifications</h2>
+                    <ul>
+                        <li>PHP & MySQL - Laqshya Institute (2018-2019)</li>
+                        <li>Graphics Designing - Kaizen Multimedia (2017-2018)</li>
+                    </ul>
+                </section>
+
+                <section id="hobbies" class="section">
+                    <h2>Hobbies</h2>
+                    <ul>
+                        <li>Playing Cricket</li>
+                        <li>Swimming</li>
+                        <li>Learning New Programming Languages</li>
+                        <li>Exploring Open Source Projects</li>
+                        <li>Reading Tech Blogs and Books</li>
+                        <li>Photography</li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
