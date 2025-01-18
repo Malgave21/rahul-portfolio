@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,20 +18,7 @@
         body {
             background: #f0f2f5;
             overflow-x: hidden;
-        }
-
-        /* Mobile Header */
-        .mobile-header {
-            display: none;
-            padding: 15px;
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            cursor: pointer;
+            min-height: 100vh;
         }
 
         /* Sidebar Styles */
@@ -39,63 +27,152 @@
             top: 0;
             left: 0;
             height: 100vh;
-            width: 250px;
+            width: 280px;
             background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            padding: 20px;
+            padding: 25px;
             overflow-y: auto;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
         }
 
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Profile Section */
         .profile-section {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-section h4 {
+            margin: 15px 0 5px;
+            color: #2d3436;
+            font-weight: 600;
+        }
+
+        .profile-section .text-muted {
+            font-size: 0.9rem;
+            color: #636e72 !important;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navigation Links */
+        .nav-item {
+            margin-bottom: 8px;
         }
 
         .nav-link {
             display: flex;
             align-items: center;
-            padding: 10px 15px;
-            color: #333;
+            padding: 12px 18px;
+            color: #2d3436;
             text-decoration: none;
             transition: all 0.3s ease;
-            border-radius: 5px;
-            margin-bottom: 5px;
+            border-radius: 12px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
         }
 
         .nav-link i {
-            margin-right: 10px;
+            margin-right: 12px;
             width: 20px;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #007bff;
+            transform: translateX(5px);
+        }
+
+        .nav-link.active {
             background: #007bff;
             color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+        }
+
+        .nav-link.active i {
+            transform: scale(1.1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: #007bff;
+            transform: scaleY(0);
+            transition: transform 0.2s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleY(1);
+        }
+
+        .nav-link.active::after {
+            transform: scaleY(1);
+        }
+
+        /* Category Labels */
+        .nav-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #95a5a6;
+            margin: 20px 0 10px 10px;
+            letter-spacing: 1px;
         }
 
         /* Main Content */
         .main-content {
-            margin-left: 250px;
+            margin-left: 280px;
+            min-height: 100vh;
             padding: 30px;
             transition: margin-left 0.3s ease;
         }
 
         .section {
-            display: none;
             background: #fff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
             animation: fadeIn 0.5s ease;
         }
 
@@ -103,30 +180,50 @@
             display: block;
         }
 
-        /* Mobile Styles */
-        @media (max-width: 767.98px) {
-            .mobile-header {
-                display: block;
-            }
+        /* Section Scrollbar */
+        .section::-webkit-scrollbar {
+            width: 8px;
+        }
 
-            .sidebar {
-                left: -250px;
-                transition: left 0.3s ease;
-            }
+        .section::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
 
-            .sidebar.show {
-                left: 0;
-            }
+        .section::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
 
-            .main-content {
-                margin-left: 0;
-                padding: 15px;
-                padding-top: 70px;
-            }
+        .section::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
 
-            .section {
-                display: block !important;
-            }
+        /* Content Styles */
+        h2 {
+            color: #007bff;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #2d3436;
+            margin: 20px 0 15px;
+            font-weight: 500;
+        }
+
+        ul {
+            list-style-position: inside;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #2d3436;
         }
 
         /* Animations */
@@ -135,62 +232,134 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Additional Styles */
-        h2 {
+        /* Mobile Styles */
+        @media (max-width: 767.98px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 15px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .section {
+                display: block !important;
+                max-height: none;
+                overflow-y: visible;
+            }
+
+            .profile-section {
+                margin-bottom: 20px;
+                padding: 10px 0;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .nav-link {
+                padding: 10px 15px;
+                border-radius: 8px;
+            }
+
+            .nav-link:hover {
+                transform: none;
+            }
+
+            .nav-category {
+                margin: 15px 0 8px 10px;
+            }
+
+            #skills ul {
+                columns: 1;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+                margin: 15px 0 10px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .section {
+                display: block !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Additional Section-Specific Styles */
+        #about.section {
+            text-align: center;
+        }
+
+        #experience h3 {
             color: #007bff;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
         }
 
-        ul {
-            list-style-position: inside;
-            padding-left: 0;
+        #skills ul {
+            columns: 1;
         }
 
+        /* Link Styles */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* Text Styles */
         .text-muted {
             color: #6c757d;
         }
 
-        /* Overlay for mobile menu */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-
-        .overlay.show {
-            display: block;
+        strong {
+            font-weight: 600;
+            color: #2d3436;
         }
     </style>
 </head>
+
 <body>
     <!-- Mobile Header -->
-    <div class="mobile-header" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i> Rahul B. Malgave - Portfolio
+    <div class="mobile-header text-center bg-primary text-white p-2 d-md-none">
+        Rahul B. Malgave - Portfolio
     </div>
 
-    <!-- Overlay for mobile -->
-    <div class="overlay" onclick="toggleSidebar()"></div>
-
     <!-- Sidebar -->
-    <nav class="sidebar" id="sidebar">
-        <div class="profile-section">
-            <img src="./rm.png" alt="Profile Picture" class="profile-img">
-            <h4>Rahul B. Malgave</h4>
-            <p class="text-muted">Web Developer</p>
-        </div>
+    <nav class="sidebar d-none d-md-block" id="sidebar">
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link active" href="#about">
@@ -243,7 +412,8 @@
                 <img src="./rm.png" alt="Profile Picture" class="profile-img mb-3">
                 <h1>Rahul B. Malgave</h1>
                 <p class="text-muted">Web Developer | PHP Programmer | Node.js Programmer</p>
-                <p>Mobile: +91 9768708926 | Email: <a href="mailto:rahulmalgave4433@gmail.com">rahulmalgave4433@gmail.com</a></p>
+                <p>Mobile: +91 9768708926 | Email: <a
+                        href="mailto:rahulmalgave4433@gmail.com">rahulmalgave4433@gmail.com</a></p>
             </header>
         </section>
 
@@ -359,50 +529,60 @@
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section');
-            const overlay = document.querySelector('.overlay');
+            const isMobile = () => window.innerWidth <= 767.98;
 
+            // Function to handle section visibility
+            const handleSectionVisibility = () => {
+                if (isMobile()) {
+                    // Show all sections on mobile
+                    sections.forEach(section => {
+                        section.style.display = 'block';
+                    });
+                } else {
+                    // On desktop, show only active section
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    // Show the first section by default if none is active
+                    const activeSection = document.querySelector('.section.active') || sections[0];
+                    activeSection.style.display = 'block';
+                }
+            };
+
+            // Initial setup
+            handleSectionVisibility();
+
+            // Handle navigation clicks
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    
-                    // Remove active classes
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    sections.forEach(s => s.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    link.classList.add('active');
-                    
-                    // Show corresponding section
-                    const targetId = link.getAttribute('href').substring(1);
-                    document.getElementById(targetId).classList.add('active');
 
-                    // Close sidebar on mobile after clicking
-                    if (window.innerWidth <= 767.98) {
-                        toggleSidebar();
+                    // Update active nav link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (isMobile()) {
+                        // Scroll to section on mobile
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        // Handle desktop section display
+                        sections.forEach(section => {
+                            section.style.display = 'none';
+                            section.classList.remove('active');
+                        });
+                        targetSection.style.display = 'block';
+                        targetSection.classList.add('active');
                     }
                 });
             });
-        });
 
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.querySelector('.overlay');
-            sidebar.classList.toggle('show');
-            overlay.classList.toggle('show');
-        }
-
-        // Close sidebar when clicking outside
-        document.addEventListener('click', (e) => {
-            const sidebar = document.getElementById('sidebar');
-            const mobileHeader = document.querySelector('.mobile-header');
-            
-            if (window.innerWidth <= 767.98 && 
-                !sidebar.contains(e.target) && 
-                !mobileHeader.contains(e.target) && 
-                sidebar.classList.contains('show')) {
-                toggleSidebar();
-            }
+            // Handle window resize
+            window.addEventListener('resize', handleSectionVisibility);
         });
     </script>
 </body>
+
 </html>
